@@ -1,0 +1,868 @@
+/* =========================================
+   26. PRESENTACIÓN DE LA CUMPLEAÑERA
+========================================= */
+
+/* =========================================
+   FONDO EXCLUSIVO: NOCHE ELEGANTE
+   Brillo suave para la sección fotográfica
+========================================= */
+
+#contenidoDesbloqueado.seccion-foto {
+    position: relative;
+    isolation: isolate;
+    border-radius: 50px;
+
+    /* Fondo independiente de las demás etapas */
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #493064 0%,
+            #241735 42%,
+            #100d29 100%
+        );
+
+    overflow: hidden;
+}
+
+/* Resplandor ambiental detrás de la fotografía */
+#contenidoDesbloqueado.seccion-foto::before {
+    content: "";
+    position: absolute;
+    inset: -12%;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 25%,
+            #a879ff35 0%,
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 85% 65%,
+            #ff70ac30 0%,
+            transparent 40%
+        );
+
+    animation: brilloNoche 8s ease-in-out infinite alternate;
+}
+
+/* Brillo sutil alrededor de la fotografía */
+#contenidoDesbloqueado.seccion-foto .foto-fondo {
+    filter:
+        drop-shadow(0 0 14px #2a0171)
+        drop-shadow(0 0 32px #bd0652);
+}
+
+/* Degradado inferior para integrar el texto */
+#contenidoDesbloqueado.seccion-foto .velo-foto {
+    background: linear-gradient(
+        to bottom,
+        #100d2905 0%,
+        #17102715 45%,
+        #100d29a8 76%,
+        #100d29f2 100%
+    );
+}
+
+/* Animación lenta y discreta */
+@keyframes brilloNoche {
+    from {
+        opacity: 0.65;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* Respetar la accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    #contenidoDesbloqueado.seccion-foto::before {
+        animation: none;
+    }
+}
+
+.contenido-desbloqueado {
+    text-align: center;
+}
+
+/* Animación ligera de entrada */
+
+.contenido-desbloqueado.animar-aparicion {
+    animation: aparecerRecuerdo 0.7s ease-out both;
+}
+
+@keyframes aparecerRecuerdo {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Marco de la fotografía */
+
+.contenido-desbloqueado {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    min-width: 0;
+}
+
+/* Fotografía de borde a borde dentro de la tarjeta */
+
+.contenido-desbloqueado .foto-cumpleanera {
+    width: calc(100% + 60px);
+    max-width: none;
+    height: clamp(280px, 55svh, 520px);
+    margin: 18px -30px 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+.contenido-desbloqueado .foto-cumpleanera img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+/* Nombre debajo de la fotografía */
+
+.nombre-cumpleanera {
+    margin: 0 auto 12px;
+
+    color: #ffb5d2;
+
+    font-size: clamp(25px, 6vw, 34px);
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+/* Mensaje de cumpleaños */
+
+.mensaje-presentacion {
+    max-width: 320px;
+
+    margin: 0 auto;
+
+    color: #e4d9f4;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+
+    .mensaje-presentacion {
+        font-size: 13px;
+    }
+}
+
+
+/* Respeto a la preferencia de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    .contenido-desbloqueado.animar-aparicion {
+        animation: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenido-desbloqueado .foto-cumpleanera {
+        width: calc(100% + 40px);
+        margin: 14px -20px 20px;
+    }
+}
+
+/* Sección fotográfica integrada en la página */
+
+.contenido-desbloqueado.seccion-foto {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    max-width: 440px;
+    min-height: 520px;
+    height: clamp(520px, 75svh, 760px);
+
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+
+    border: none;
+    border-radius: 0;
+    background: #02f2ff;
+    box-shadow: none;
+    text-align: center;
+}
+
+/* La foto llena toda la sección */
+
+.seccion-foto .foto-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Degradado para mejorar la lectura */
+
+.seccion-foto .velo-foto {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 35%,
+        #100d2960 65%,
+        #100d29e8 100%
+    );
+}
+
+/* Texto dentro de la sección */
+
+.seccion-foto .contenido-foto {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding: 24px 20px 30px;
+}
+
+.seccion-foto .nombre-cumpleanera {
+    color: #fff;
+    font-size: clamp(30px, 7vw, 42px);
+    text-shadow: 0 2px 12px #0008;
+}
+
+.seccion-foto .mensaje-presentacion {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .contenido-desbloqueado.seccion-foto {
+        width: 100%;
+        max-width: none;
+        height: 75svh;
+        min-height: 480px;
+    }
+}
+
+
+/* =========================================
+   SOLUCIÓN DEFINITIVA: FOTO ARRIBA, MÚSICA ABAJO
+========================================= */
+
+/* El contenedor general apila ambas secciones */
+html body main.contenedor-principal
+#contenidoDesbloqueado.seccion-foto 
+#contenidoDesbloqueado.seccion-foto:not([hidden]){
+    display: block !important;
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+
+    transform: none;
+}
+
+/* La fotografía tiene una altura independiente */
+html body #contenidoDesbloqueado .zona-fotografia {
+    position: relative !important;
+    display: block !important;
+
+    width: 100% !important;
+    height: clamp(420px, 65svh, 700px) !important;
+    min-height: 420px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 50px;
+}
+
+/* La imagen cubre únicamente su propia sección */
+html body #contenidoDesbloqueado .zona-fotografia img.foto-fondo {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* El reproductor vuelve al flujo normal */
+html body #contenidoDesbloqueado #etapaMusical.etapa-musical {
+    position: relative !important;
+    inset: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 36px 22px 30px !important;
+
+    transform: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Evita que la tarjeta musical se superponga */
+html body #contenidoDesbloqueado .spotify-card {
+    position: relative !important;
+    inset: auto !important;
+
+    width: 100% !important;
+    max-width: 420px !important;
+
+    margin: 0 auto !important;
+    transform: none !important;
+}
+
+/* Teléfonos */
+@media (max-width: 600px) {
+    html body #contenidoDesbloqueado .zona-fotografia {
+        height: 65svh !important;
+        min-height: 420px !important;
+    }
+
+    html body #contenidoDesbloqueado #etapaMusical.etapa-musical {
+        padding: 30px 18px 28px !important;
+    }
+}
+
+/* Mantener oculta la foto y la música hasta desbloquear */
+#contenidoDesbloqueado[hidden] {
+    display: none !important;
+}
+
+/* Al desbloquear, mostrar el contenido en el flujo normal */
+#contenidoDesbloqueado:not([hidden]) {
+    display: block;
+}
+
+/* Ocultar completamente el contenido bloqueado */
+#contenidoDesbloqueado[hidden] {
+    display: none !important;
+}
+
+/* Ocultar la contraseña cuando corresponda */
+#panel[hidden] {
+    display: none !important;
+}
+
+/* Ocultar la sección de bienvenida cuando corresponda */
+#bienvenida[hidden] {
+    display: none !important;
+}
+
+/* Prioridad máxima para ocultar las etapas 3 y 4 */
+html body main.contenedor-principal
+#contenidoDesbloqueado.seccion-foto[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   CORRECCIÓN: FOTO Y MÚSICA SIN SUPERPOSICIÓN
+========================================= */
+
+/* Contenedor de las etapas 3 y 4 */
+html body main.contenedor-principal
+#contenidoDesbloqueado.seccion-foto:not([hidden]) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+
+    transform: none !important;
+    animation: none;
+    background: transparent;
+}
+
+/* La fotografía ocupa su propio espacio */
+html body #contenidoDesbloqueado .zona-fotografia {
+    position: relative !important;
+    flex: 0 0 auto !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: clamp(420px, 65svh, 700px) !important;
+    min-height: 420px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* La imagen queda limitada al contenedor fotográfico */
+html body #contenidoDesbloqueado .zona-fotografia .foto-fondo {
+    position: absolute !important;
+    inset: 0 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* La etapa musical comienza después de la fotografía */
+html body #contenidoDesbloqueado #etapaMusical.etapa-musical {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 36px 22px 30px !important;
+
+    transform: none !important;
+    box-sizing: border-box !important;
+}
+
+/* El reproductor también permanece en el flujo normal */
+html body #contenidoDesbloqueado .spotify-card {
+    position: relative !important;
+    inset: auto !important;
+
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+
+    margin: 0 auto !important;
+    transform: none !important;
+}
+
+/* Separación entre la foto y la música */
+html body #contenidoDesbloqueado #etapaMusical {
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+}
+
+/* Un poco más de espacio en teléfonos */
+@media (max-width: 600px) {
+    html body #contenidoDesbloqueado #etapaMusical {
+        margin-top: 30px !important;
+        padding-top: 16px !important;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+    html body #contenidoDesbloqueado .zona-fotografia {
+        height: 65svh !important;
+        min-height: 420px !important;
+    }
+
+    html body #contenidoDesbloqueado #etapaMusical.etapa-musical {
+        padding: 30px 18px 28px !important;
+    }
+}
+
+
+/* Aparición suave al desbloquear el contenido */
+
+#contenidoDesbloqueado.apareciendo {
+    animation: aparicionRomantica 1.2s ease-out both;
+}
+
+@keyframes aparicionRomantica {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #contenidoDesbloqueado.apareciendo {
+        animation: none;
+    }
+}
+
+
+/* =========================================
+   SCROLL REVEAL: APARICIÓN DE ELEMENTOS
+========================================= */
+
+/* Estado inicial: elemento oculto */
+.revelar-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+/* Estado visible al entrar en pantalla */
+.revelar-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Aparición escalonada de los elementos */
+.revelar-scroll.retraso-1 {
+    transition-delay: 0.12s;
+}
+
+.revelar-scroll.retraso-2 {
+    transition-delay: 0.24s;
+}
+
+.revelar-scroll.retraso-3 {
+    transition-delay: 0.36s;
+}
+
+/* Respetar las preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .revelar-scroll,
+    .revelar-scroll.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
+
+/* =====================================
+   MENSAJE PARA MI HERMANA
+===================================== */
+
+.mensaje-para-hermana {
+    position: relative;
+    isolation: isolate;
+    width: min(100% - 30px, 780px);
+    margin: 55px auto;
+    padding: clamp(25px, 5vw, 48px) clamp(18px, 4vw, 38px);
+    overflow: hidden;
+    text-align: center;
+    color: #fff0f7;
+
+    background:
+        radial-gradient(ellipse at 10% 0%, #a83e7180, transparent 45%),
+        radial-gradient(ellipse at 100% 100%, #6e285d80, transparent 45%),
+        linear-gradient(145deg, #351b31, #241827 65%, #391c35);
+
+    border: 1px solid #e86eac99;
+    border-radius: 28px;
+    box-shadow:
+        0 20px 55px #160b1d55,
+        inset 0 0 35px #f67ab10c;
+}
+
+/* Brillo superior */
+.mensaje-para-hermana::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+        125deg,
+        transparent 20%,
+        #ffffff08 45%,
+        transparent 70%
+    );
+}
+
+/* Etiqueta superior */
+.etiqueta-mensaje {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 9px 17px;
+    margin-bottom: 18px;
+
+    color: #ffd0e8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    border: 1px solid #e980b566;
+    border-radius: 30px;
+    background: #ffffff08;
+}
+
+.etiqueta-mensaje span {
+    color: #ff80b9;
+    font-size: 16px;
+}
+
+/* Título */
+.mensaje-para-hermana h2 {
+    margin: 0;
+    color: #ffe2f0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 7vw, 56px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-shadow: 0 0 25px #ff72b944;
+}
+
+.corazon-titulo {
+    display: inline-block;
+    color: #ff83bd;
+    animation: latidoTitulo 1.8s ease-in-out infinite;
+}
+
+.subtitulo-mensaje {
+    margin: 12px 0 28px;
+    color: #e8bfd6;
+    font-size: clamp(13px, 2.8vw, 16px);
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+}
+
+/* Tarjeta del reproductor */
+.reproductor-mensaje {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 17px;
+
+    background: linear-gradient(
+        135deg,
+        #ed7bb52b,
+        #ffffff08
+    );
+
+    border: 1px solid #f49bc477;
+    border-radius: 20px;
+    box-shadow:
+        0 8px 25px #160b1d35,
+        inset 0 1px #ffffff12;
+}
+
+/* Icono musical */
+.icono-audio {
+    display: grid;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+
+    color: white;
+    font-size: 27px;
+
+    background: linear-gradient(145deg, #ed72ad, #9e326e);
+    border: 1px solid #ffb2d8;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #f06ba644;
+}
+
+/* Reproductor de audio */
+.reproductor-mensaje audio {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    accent-color: #ed79b5;
+    color-scheme: dark;
+}
+
+/* Onda decorativa */
+.onda-voz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 72px;
+    margin: 28px 0 15px;
+    overflow: hidden;
+    opacity: 0.85;
+}
+
+.onda-voz span {
+    display: block;
+    flex: 0 1 4px;
+    width: 4px;
+    height: 12px;
+    min-width: 2px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffb5dc,
+        #ec65a9,
+        #a94a91
+    );
+
+    border-radius: 10px;
+    box-shadow: 0 0 8px #f26ab866;
+
+    animation: ondaMensaje 1s ease-in-out infinite alternate;
+}
+
+/* Variación de alturas */
+.onda-voz span:nth-child(6n + 1) { height: 20px; }
+.onda-voz span:nth-child(6n + 2) { height: 36px; }
+.onda-voz span:nth-child(6n + 3) { height: 48px; }
+.onda-voz span:nth-child(6n + 4) { height: 27px; }
+.onda-voz span:nth-child(6n + 5) { height: 15px; }
+.onda-voz span:nth-child(6n) { height: 40px; }
+
+.onda-voz span:nth-child(2n) {
+    animation-delay: -0.4s;
+}
+
+.onda-voz span:nth-child(3n) {
+    animation-delay: -0.7s;
+}
+
+.onda-voz span:nth-child(5n) {
+    animation-delay: -0.2s;
+}
+
+/* Frase inferior */
+.frase-mensaje {
+    max-width: 440px;
+    margin: 10px auto 0;
+    color: #eac9dc;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(14px, 3vw, 18px);
+    font-style: italic;
+    line-height: 1.9;
+}
+
+.frase-mensaje span {
+    color: #ff85bd;
+    font-size: 24px;
+}
+
+/* Animaciones */
+@keyframes ondaMensaje {
+    from {
+        transform: scaleY(0.55);
+        opacity: 0.65;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes latidoTitulo {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .mensaje-para-hermana {
+        width: calc(100% - 24px);
+        margin: 35px auto;
+        padding: 27px 15px;
+        border-radius: 22px;
+    }
+
+    .etiqueta-mensaje {
+        gap: 7px;
+        padding: 8px 12px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .reproductor-mensaje {
+        gap: 10px;
+        padding: 12px 10px;
+        border-radius: 16px;
+    }
+
+    .icono-audio {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+        font-size: 23px;
+    }
+
+    .reproductor-mensaje audio {
+        height: 38px;
+    }
+
+    .onda-voz {
+        gap: 3px;
+        height: 55px;
+        margin: 23px 0 12px;
+    }
+
+    .onda-voz span {
+        flex-basis: 3px;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .onda-voz span,
+    .corazon-titulo {
+        animation: none;
+    }
+}

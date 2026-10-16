@@ -1,0 +1,179 @@
+
+/* =========================================
+   20. ETAPAS DE LA DEDICATORIA
+========================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+.bienvenida
+
+
+.instruccion {
+    margin-top: -12px;
+    margin-bottom: 12px;
+    color: #f4dcec;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   21. CORAZÓN INTERACTIVO
+========================================= */
+
+.corazon-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
+    height: 110px;
+
+    margin: 8px auto 0;
+    padding: 10px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: transparent;
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    touch-action: manipulation;
+}
+
+.corazon-svg {
+    display: block;
+
+    width: 88px;
+    height: 80px;
+
+    overflow: visible;
+
+    transition: transform 0.18s ease;
+}
+
+.corazon-contorno {
+    fill: #211735;
+    stroke: #ff70ac;
+    stroke-width: 4;
+    stroke-linejoin: round;
+}
+
+
+/* Relleno rojo del corazón */
+.corazon-relleno {
+    fill: #ff1744;
+}
+
+.corazon-boton:active .corazon-svg {
+    transform: scale(0.90);
+}
+
+.corazon-boton:focus-visible {
+    outline: 2px solid #ff70ac;
+    outline-offset: 2px;
+}
+
+/* =========================================
+   22. CONTADOR Y MENSAJE
+========================================= */
+
+.contador-corazon {
+    margin-top: 4px;
+
+    color: #ffb5d2;
+    font-size: 14px;
+    font-weight: 600;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.mensaje-corazon {
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+
+    color: #e4d9f4;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   23. BARRA DE PROGRESO
+========================================= */
+
+.barra-progreso {
+    width: 100%;
+    height: 6px;
+
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+    background: #ffffff15;
+}
+
+#progresoVisual {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+    background: #ff244f;
+
+    transition: width 0.2s ease;
+}
+
+/* =========================================
+   24. CONTENIDO DESBLOQUEADO
+========================================= */
+
+.zona-dedicatoria {
+    margin-top: 15px;
+    padding: 20px;
+
+    border: 1px solid #ffffff20;
+    border-radius: 16px;
+
+    background: #ffffff08;
+
+    color: #f4dcec;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   25. ADAPTACIÓN MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+    .corazon-boton {
+        width: 112px;
+        height: 100px;
+    }
+
+    .corazon-svg {
+        width: 80px;
+        height: 74px;
+    }
+
+    .mensaje-corazon {
+        font-size: 12px;
+    }
+}
+
+/* Respeto a la preferencia de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    .corazon-svg,
+    #progresoVisual {
+        transition: none;
+    }
+}

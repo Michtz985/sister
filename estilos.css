@@ -1,0 +1,737 @@
+
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --rosa: #ff70ac;
+    --morado: #9c83ff;
+    --dorado: #ffdc83;
+    --fondo: #100d29;
+    --blanco: #ffffff;
+    --panel: #211735;
+    --texto-secundario: #e4d9f4;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: var(--fondo);
+    color: var(--blanco);
+
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. FONDO DE CUMPLEAÑOS
+   Gradientes estáticos para ahorrar recursos
+========================================= */
+
+.fondo-animado {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            #35204d 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            #302052 0%,
+            transparent 45%
+        ),
+        #100d29;
+}
+
+/* =========================================
+   3. BRILLOS DECORATIVOS
+========================================= */
+
+.brillo {
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+    opacity: 0.16;
+
+    /* Sin desenfoques costosos */
+    filter: none;
+
+    pointer-events: none;
+}
+
+.brillo-1 {
+    background: #ff4f9a;
+
+    top: -70px;
+    left: -60px;
+}
+
+.brillo-2 {
+    background: #765bff;
+
+    top: 35%;
+    right: -70px;
+}
+
+.brillo-3 {
+    background: #ffb84d;
+
+    bottom: -80px;
+    left: 30%;
+}
+
+/* =========================================
+   4. CONTENEDORES DE DECORACIONES
+========================================= */
+
+#globos,
+#confeti,
+#estrellas {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* =========================================
+   5. GLOBOS
+========================================= */
+
+.globo {
+    position: absolute;
+
+    bottom: -100px;
+
+    width: 28px;
+    height: 36px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    opacity: 0.65;
+
+    animation: flotarGlobo 18s linear infinite;
+}
+
+/* Punta del globo */
+
+.globo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -3px;
+
+    width: 6px;
+    height: 6px;
+
+    background: inherit;
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* Hilo */
+
+.globo::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    width: 1px;
+    height: 35px;
+
+    background: #ffffff50;
+
+    transform: translateX(-50%);
+}
+
+/* Movimiento vertical suave */
+
+@keyframes flotarGlobo {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(12px, -50vh, 0);
+    }
+
+    100% {
+        transform: translate3d(-8px, -110vh, 0);
+    }
+}
+
+/* =========================================
+   6. CONFETI
+========================================= */
+
+.confeti {
+    position: absolute;
+
+    top: -15px;
+
+    width: 5px;
+    height: 8px;
+
+    opacity: 0.75;
+
+    animation: caerConfeti 9s linear infinite;
+}
+
+@keyframes caerConfeti {
+    from {
+        transform: translate3d(0, -15px, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate3d(0, 110vh, 0) rotate(360deg);
+    }
+}
+
+/* =========================================
+   7. ESTRELLAS
+========================================= */
+
+.estrella {
+    position: absolute;
+
+    color: var(--dorado);
+
+    opacity: 0.6;
+
+    animation: parpadear 4s ease-in-out infinite alternate;
+}
+
+@keyframes parpadear {
+    from {
+        opacity: 0.35;
+    }
+
+    to {
+        opacity: 0.75;
+    }
+}
+
+/* =========================================
+   8. CONTENEDOR PRINCIPAL
+========================================= */
+
+.contenedor-principal {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+/* =========================================
+   9. PANEL DE CONTRASEÑA
+========================================= */
+
+.panel {
+    position: relative;
+
+    width: 100%;
+    max-width: 440px;
+
+    padding: 38px 30px 25px;
+
+    text-align: center;
+
+    background: #211735ed;
+
+    border: 1px solid #ffffff25;
+    border-radius: 24px;
+
+    /* Una sola sombra ligera */
+    box-shadow: 0 10px 30px #00000025;
+
+    /* Sin backdrop-filter */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    animation: aparecerPanel 0.45s ease-out both;
+}
+
+/* Entrada del panel */
+
+@keyframes aparecerPanel {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   10. ICONO DE CUMPLEAÑOS
+========================================= */
+
+.icono-cumple {
+    font-size: 60px;
+
+    margin-bottom: 12px;
+
+    animation: pastelFlotante 4s ease-in-out infinite;
+}
+
+@keyframes pastelFlotante {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* =========================================
+   11. TEXTOS
+========================================= */
+
+.etiqueta {
+    margin-bottom: 13px;
+
+    color: var(--dorado);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin-bottom: 15px;
+
+    font-size: clamp(25px, 6vw, 32px);
+    line-height: 1.25;
+
+    overflow-wrap: break-word;
+}
+
+.descripcion {
+    margin-bottom: 28px;
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   12. FORMULARIO
+========================================= */
+
+form {
+    width: 100%;
+    text-align: left;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #f3eaff;
+
+    font-size: 13px;
+}
+
+/* Campo y botón para mostrar contraseña */
+
+.campo-contrasena {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #0d0924;
+
+    border: 1px solid #ffffff35;
+    border-radius: 13px;
+
+    transition: border-color 0.2s ease;
+}
+
+.campo-contrasena:focus-within {
+    border-color: var(--rosa);
+}
+
+.campo-contrasena input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--blanco);
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.campo-contrasena input::placeholder {
+    color: #a99cbe;
+    opacity: 1;
+}
+
+/* Botón del ojo */
+
+#mostrarContrasena {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    min-height: 48px;
+
+    padding: 8px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--blanco);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+#mostrarContrasena:focus-visible {
+    outline: 2px solid var(--rosa);
+    outline-offset: -3px;
+}
+
+/* =========================================
+   13. BOTÓN DESBLOQUEAR
+========================================= */
+
+.boton-entrar {
+    display: block;
+
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: 17px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: linear-gradient(
+        100deg,
+        #ff70ac,
+        #ff9cbd,
+        #d69cff
+    );
+
+    color: #32112d;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition: opacity 0.2s ease;
+}
+
+.boton-entrar:hover {
+    opacity: 0.9;
+}
+
+.boton-entrar:active {
+    opacity: 0.8;
+}
+
+.boton-entrar:focus-visible {
+    outline: 2px solid var(--blanco);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   14. MENSAJES DE CONTRASEÑA
+========================================= */
+
+#mensaje {
+    min-height: 20px;
+
+    margin-top: 13px;
+
+    color: #ffb1cc;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   15. DECORACIÓN INFERIOR
+========================================= */
+
+.decoracion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 18px;
+
+    font-size: 23px;
+}
+
+.decoracion span {
+    animation: bailar 3s ease-in-out infinite;
+}
+
+.decoracion span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.decoracion span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bailar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.pie {
+    margin-top: 22px;
+    padding-top: 17px;
+
+    border-top: 1px solid #ffffff20;
+
+    color: #d0c1e6;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    letter-spacing: 0.3px;
+}
+
+/* =========================================
+   16. ADAPTACIÓN PARA TELÉFONOS
+========================================= */
+
+@media (max-width: 600px) {
+    .contenedor-principal {
+        padding: 16px;
+    }
+
+    .panel {
+        max-width: 440px;
+
+        padding: 28px 20px 22px;
+
+        border-radius: 22px;
+
+        box-shadow: 0 8px 24px #00000020;
+    }
+
+    .icono-cumple {
+        font-size: 54px;
+    }
+
+    .etiqueta {
+        letter-spacing: 2px;
+    }
+
+    .descripcion {
+        margin-bottom: 24px;
+    }
+
+    /* Eliminamos los brillos en móviles */
+    .brillo {
+        display: none;
+    }
+
+    /* Animaciones más lentas */
+    .globo {
+        animation-duration: 24s;
+    }
+
+    .confeti {
+        animation-duration: 12s;
+    }
+
+    .estrella {
+        animation-duration: 5s;
+    }
+}
+
+/* =========================================
+   17. TELÉFONOS MUY PEQUEÑOS
+========================================= */
+
+@media (max-width: 360px) {
+    .contenedor-principal {
+        padding: 12px;
+    }
+
+    .panel {
+        padding: 24px 16px 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .etiqueta {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .campo-contrasena input {
+        padding: 14px 10px;
+    }
+
+    .decoracion {
+        gap: 16px;
+    }
+}
+
+/* =========================================
+   18. PANTALLAS CON POCA ALTURA
+========================================= */
+
+@media (max-height: 600px) {
+    .contenedor-principal {
+        align-items: flex-start;
+    }
+
+    .panel {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .icono-cumple {
+        margin-bottom: 6px;
+        font-size: 44px;
+    }
+
+    .descripcion {
+        margin-bottom: 18px;
+    }
+
+    .decoracion {
+        margin-top: 12px;
+    }
+
+    .pie {
+        margin-top: 14px;
+        padding-top: 12px;
+    }
+}
+
+/* =========================================
+   19. ACCESIBILIDAD
+   Respetar preferencias del dispositivo
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================
+   CONTROL DE VISIBILIDAD DE LAS ETAPAS
+========================================= */
+
+/* Ocultar cualquier etapa que tenga el atributo hidden */
+[hidden] {
+    display: none !important;
+}
+
+/* La pantalla principal debe contener una sola etapa visible */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Etapa 1: contraseña */
+#panel:not([hidden]) {
+    display: block;
+}
+
+/* Etapa 2: bienvenida y corazón */
+#bienvenida:not([hidden]) {
+    display: block;
+    width: 100%;
+}
+
+/* Etapas 3 y 4: foto y reproductor */
+#contenidoDesbloqueado:not([hidden]) {
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,110 @@
+
+/* =========================================
+   ETAPA 5: GALERÍA DE RECUERDOS
+========================================= */
+
+.etapa-galeria {
+    width: 100%;
+    max-width: 900px;
+    margin: 55px auto 30px;
+    padding: 20px 0;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.titulo-galeria {
+    margin: 0 15px 10px;
+    font-size: clamp(23px, 5vw, 34px);
+    color: #f6c7df;
+}
+
+.descripcion-galeria {
+    margin: 0 20px 28px;
+    color: #e4d9f4;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.galeria-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.pista-galeria {
+    display: flex;
+    width: max-content;
+    gap: 12px;
+    will-change: transform;
+}
+
+.grupo-fotos {
+    display: flex;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.grupo-fotos img {
+    display: block;
+    width: clamp(135px, 35vw, 210px);
+    height: clamp(175px, 48vw, 270px);
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgb(255 255 255 / 18%);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
+}
+
+/* Primera fila: izquierda */
+.pista-izquierda {
+    animation: galeriaIzquierda 28s linear infinite;
+}
+
+/* Segunda fila: derecha */
+.pista-derecha {
+    animation: galeriaDerecha 28s linear infinite;
+}
+
+@keyframes galeriaIzquierda {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 6px));
+    }
+}
+
+@keyframes galeriaDerecha {
+    from {
+        transform: translateX(calc(-50% - 6px));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Reducir movimiento si el usuario lo solicita */
+@media (prefers-reduced-motion: reduce) {
+    .pista-galeria {
+        animation: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .etapa-galeria {
+        margin-top: 40px;
+    }
+
+    .galeria-vertical {
+        gap: 14px;
+    }
+
+    .grupo-fotos img {
+        border-radius: 12px;
+    }
+}

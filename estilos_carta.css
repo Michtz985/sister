@@ -1,0 +1,190 @@
+
+/* =========================================
+   ETAPA 6: CARTA DEDICATORIA
+========================================= */
+
+.etapa-carta {
+    width: 100%;
+    max-width: 620px;
+    margin: 55px auto 45px;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Portada de la carta */
+
+.sobre-carta {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 22px;
+    border: 1px solid rgba(255, 196, 220, 0.6);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fff2f7, #f7dce9);
+    color: #8e4564;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.decoracion-corazon {
+    display: block;
+    margin-bottom: 12px;
+    color: #ce7298;
+    font-size: 27px;
+    animation: latidoCarta 2s ease-in-out infinite;
+}
+
+.etiqueta-carta {
+    margin: 0 0 12px;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.sobre-carta h2 {
+    margin: 0 0 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 6vw, 38px);
+}
+
+.frase-carta {
+    max-width: 350px;
+    margin: 0 auto;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.icono-carta {
+    margin: 20px 0;
+    font-size: 48px;
+}
+
+.boton-abrir-carta,
+.boton-cerrar-carta {
+    padding: 12px 22px;
+    border: 1px solid #d58aa9;
+    border-radius: 30px;
+    background: #c75c85;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.boton-abrir-carta:hover,
+.boton-cerrar-carta:hover {
+    background: #a94470;
+    transform: translateY(-2px);
+}
+
+/* Papel interior */
+
+.papel-carta {
+    margin-top: 24px;
+    padding: clamp(22px, 5vw, 38px);
+    border: 1px solid #ead3bd;
+    border-radius: 8px;
+    background:
+        linear-gradient(rgba(255, 252, 243, 0.97), rgba(255, 248, 235, 0.97));
+    color: #59433e;
+    text-align: left;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.papel-carta[hidden] {
+    display: none !important;
+}
+
+.papel-carta.abierta {
+    animation: desplegarCarta 0.8s ease both;
+}
+
+.encabezado-carta {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6c9bd;
+    color: #a34f72;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.texto-dedicatoria {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.texto-dedicatoria p {
+    margin: 20px 0;
+}
+
+.firma-carta {
+    margin-top: 28px !important;
+    text-align: right;
+    font-style: italic;
+}
+
+.firma-carta span {
+    color: #a34f72;
+    font-size: 19px;
+}
+
+.boton-cerrar-carta {
+    display: block;
+    margin: 24px auto 0;
+}
+
+@keyframes desplegarCarta {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes latidoCarta {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.13);
+    }
+}
+
+@media (max-width: 600px) {
+    .etapa-carta {
+        margin-top: 35px;
+        padding: 10px;
+    }
+
+    .sobre-carta {
+        padding: 27px 18px;
+        border-radius: 18px;
+    }
+
+    .texto-dedicatoria {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .decoracion-corazon {
+        animation: none;
+    }
+
+    .papel-carta.abierta {
+        animation: none;
+    }
+
+    .boton-abrir-carta,
+    .boton-cerrar-carta {
+        transition: none;
+    }
+}

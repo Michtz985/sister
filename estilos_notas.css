@@ -1,0 +1,233 @@
+
+/* =========================================
+   ETAPA 7: NOTAS PARA TI
+========================================= */
+
+.etapa-notas {
+    width: 100%;
+    max-width: 560px;
+    margin: 55px auto 40px;
+    padding: 20px 16px;
+    color: #6b4657;
+}
+
+.encabezado-notas {
+    margin-bottom: 34px;
+    text-align: center;
+}
+
+.adorno-notas {
+    display: block;
+    margin-bottom: 10px;
+    color: #d45c87;
+    font-size: 34px;
+}
+
+.encabezado-notas h2 {
+    margin: 0 0 10px;
+    color: #f1c4da;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+.encabezado-notas > p {
+    margin: 0;
+    color: #e5d5e0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Línea vertical de recuerdos */
+
+.linea-tiempo-notas {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-left: 22px;
+}
+
+.linea-tiempo-notas::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 5px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        #e9a1bf,
+        #c75c85,
+        #e9a1bf
+    );
+    opacity: 0.8;
+}
+
+/* Cada nota */
+
+.nota-recuerdo {
+    position: relative;
+    min-width: 0;
+}
+
+.punto-nota {
+    position: absolute;
+    top: 18px;
+    left: -22px;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border: 3px solid #f5c6dc;
+    border-radius: 50%;
+    background: #c94d7d;
+    box-shadow: 0 0 12px rgb(220 104 153 / 35%);
+}
+
+.tarjeta-nota {
+    padding: 20px 18px;
+    border: 1px solid rgb(239 179 205 / 65%);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        #fff0f6,
+        #f9e1eb
+    );
+    box-shadow: 0 8px 22px rgb(0 0 0 / 10%);
+    text-align: left;
+}
+
+.fecha-nota {
+    display: block;
+    margin-bottom: 10px;
+    color: #a66b84;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+}
+
+.tarjeta-nota h3 {
+    margin: 0 0 12px;
+    color: #a64770;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.tarjeta-nota p {
+    margin: 0;
+    color: #745965;
+    font-size: 13px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+/* Nota de voz */
+
+.nota-voz {
+    margin-top: 34px;
+    padding: 20px 17px;
+    border: 1px solid rgb(239 179 205 / 45%);
+    border-radius: 20px;
+    background: rgb(255 237 245 / 7%);
+}
+
+.encabezado-voz {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.icono-voz {
+    display: grid;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: #c75c85;
+    color: white;
+    font-size: 22px;
+}
+
+.encabezado-voz h3 {
+    margin: 0 0 5px;
+    color: #f3c9dc;
+    font-size: 15px;
+}
+
+.encabezado-voz p {
+    margin: 0;
+    color: #d9c3d0;
+    font-size: 12px;
+}
+
+/* Onda decorativa */
+
+.onda-voz {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+    height: 58px;
+    margin-top: 18px;
+    overflow: hidden;
+}
+
+.onda-voz span {
+    width: 3px;
+    min-width: 2px;
+    height: var(--altura, 22px);
+    border-radius: 5px;
+    background: #dca0bd;
+    opacity: 0.8;
+}
+
+.onda-voz span:nth-child(4n) {
+    --altura: 38px;
+}
+
+.onda-voz span:nth-child(3n) {
+    --altura: 29px;
+}
+
+.onda-voz span:nth-child(5n) {
+    --altura: 45px;
+}
+
+.onda-voz span:nth-child(7n) {
+    --altura: 16px;
+}
+
+.aviso-voz {
+    margin: 12px 0 0;
+    color: #d9c3d0;
+    font-size: 11px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .etapa-notas {
+        margin-top: 35px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .linea-tiempo-notas {
+        gap: 19px;
+    }
+
+    .tarjeta-nota {
+        padding: 17px 15px;
+        border-radius: 17px;
+    }
+
+    .tarjeta-nota h3 {
+        font-size: 18px;
+    }
+
+    .tarjeta-nota p {
+        font-size: 13px;
+    }
+}

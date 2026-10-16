@@ -1,0 +1,380 @@
+
+/* =========================================
+   ETAPA 9: DESPEDIDA PARA KARINA
+========================================= */
+
+.etapa-salida {
+    width: 100%;
+    max-width: 560px;
+    margin: 55px auto 60px;
+    padding: 16px;
+    text-align: center;
+    color: #f9d9e8;
+}
+
+.tarjeta-salida {
+    padding: 34px 22px;
+    border: 1px solid rgb(239 179 205 / 45%);
+    border-radius: 25px;
+    background: linear-gradient(
+        145deg,
+        rgb(255 237 246 / 10%),
+        rgb(207 102 151 / 8%)
+    );
+    box-shadow: 0 12px 35px rgb(0 0 0 / 16%);
+}
+
+.corazon-salida {
+    display: block;
+    margin-bottom: 12px;
+    color: #f3a7c6;
+    font-size: 43px;
+    animation: latidoSalida 2s ease-in-out infinite;
+}
+
+.etiqueta-salida,
+.etiqueta-final {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    line-height: 1.8;
+}
+
+.etiqueta-salida {
+    color: #e5b5cc;
+}
+
+.tarjeta-salida h2 {
+    margin: 12px 0;
+    color: #ffd5e6;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 6vw, 34px);
+    line-height: 1.35;
+}
+
+.descripcion-salida {
+    margin: 0 0 24px;
+    color: #e5d5e0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.boton-despedida,
+.boton-finalizar {
+    padding: 13px 24px;
+    border: 1px solid #f1b2ce;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #d66d9b, #ad4778);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgb(192 77 128 / 22%);
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.boton-despedida:hover,
+.boton-finalizar:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+}
+
+.boton-despedida:focus-visible,
+.boton-finalizar:focus-visible,
+.cerrar-despedida:focus-visible {
+    outline: 3px solid #ffd5e6;
+    outline-offset: 4px;
+}
+
+/* =========================================
+   VENTANA EMERGENTE
+========================================= */
+
+.modal-despedida[hidden] {
+    display: none !important;
+}
+
+.modal-despedida {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: auto;
+    isolation: isolate;
+    background: #170b20;
+    animation: aparecerModalSalida 0.5s ease both;
+}
+
+/* Fondo en movimiento */
+
+.fondo-animado-despedida {
+    position: absolute;
+    inset: -25%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgb(191 64 130 / 38%),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgb(88 49 137 / 45%),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgb(45 24 69 / 75%),
+            transparent 65%
+        );
+    animation: movimientoFondoSalida 12s ease-in-out infinite alternate;
+}
+
+.fondo-animado-despedida span {
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgb(255 190 221 / 22%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgb(241 132 182 / 12%),
+        transparent 70%
+    );
+    box-shadow: 0 0 45px rgb(226 110 169 / 10%);
+    animation: flotarLuzSalida 9s ease-in-out infinite alternate;
+}
+
+.fondo-animado-despedida span:nth-child(1) {
+    top: 8%;
+    left: 12%;
+}
+
+.fondo-animado-despedida span:nth-child(2) {
+    top: 55%;
+    left: 72%;
+    width: 220px;
+    height: 220px;
+    animation-delay: -3s;
+}
+
+.fondo-animado-despedida span:nth-child(3) {
+    top: 72%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+    animation-delay: -5s;
+}
+
+.fondo-animado-despedida span:nth-child(4) {
+    top: 20%;
+    left: 78%;
+    width: 125px;
+    height: 125px;
+    animation-delay: -2s;
+}
+
+.fondo-animado-despedida span:nth-child(5) {
+    top: 38%;
+    left: 40%;
+    width: 180px;
+    height: 180px;
+    animation-delay: -6s;
+}
+
+.fondo-animado-despedida span:nth-child(6) {
+    top: 82%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    animation-delay: -4s;
+}
+
+/* Tarjeta central */
+
+.contenido-despedida {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    padding: 36px 25px 28px;
+    border: 1px solid rgb(255 202 225 / 35%);
+    border-radius: 27px;
+    background: rgb(35 19 44 / 76%);
+    color: #fff0f7;
+    text-align: center;
+    box-shadow:
+        0 25px 80px rgb(0 0 0 / 35%),
+        inset 0 0 35px rgb(230 122 177 / 5%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    animation: aparecerTarjetaSalida 0.8s ease both;
+}
+
+.cerrar-despedida {
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 8%);
+    color: #ffd5e6;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.corazon-final {
+    margin-bottom: 10px;
+    color: #ff9dc5;
+    font-size: 42px;
+    text-shadow: 0 0 25px rgb(255 125 180 / 55%);
+    animation: latidoSalida 1.8s ease-in-out infinite;
+}
+
+.etiqueta-final {
+    color: #e7a9c7;
+}
+
+.contenido-despedida h2 {
+    margin: 12px 0 20px;
+    color: #ffd5e6;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 6vw, 32px);
+    line-height: 1.4;
+}
+
+/* Mensaje escrito por JavaScript */
+
+.mensaje-despedida {
+    min-height: 150px;
+    margin: 0;
+    color: #fff0f7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 4.5vw, 21px);
+    line-height: 1.95;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.mensaje-despedida.escribiendo::after {
+    content: "▋";
+    display: inline-block;
+    margin-left: 3px;
+    color: #ff9dc5;
+    animation: parpadeoCursor 0.7s steps(2, start) infinite;
+}
+
+.firma-final {
+    margin: 20px 0;
+    color: #eeb4cf;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.8;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.firma-final.visible {
+    opacity: 1;
+}
+
+.boton-finalizar[hidden] {
+    display: none !important;
+}
+
+/* Animaciones */
+
+@keyframes movimientoFondoSalida {
+    from {
+        transform: translate(-3%, -2%) rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: translate(3%, 2%) rotate(8deg) scale(1.12);
+    }
+}
+
+@keyframes flotarLuzSalida {
+    from {
+        transform: translate3d(-15px, -12px, 0) scale(0.9);
+    }
+
+    to {
+        transform: translate3d(25px, 20px, 0) scale(1.12);
+    }
+}
+
+@keyframes aparecerModalSalida {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes aparecerTarjetaSalida {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes latidoSalida {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes parpadeoCursor {
+    to { visibility: hidden; }
+}
+
+@media (max-width: 600px) {
+    .etapa-salida {
+        margin-top: 35px;
+        padding: 10px;
+    }
+
+    .tarjeta-salida {
+        padding: 28px 18px;
+    }
+
+    .contenido-despedida {
+        padding: 34px 19px 24px;
+        border-radius: 22px;
+    }
+
+    .mensaje-despedida {
+        min-height: 175px;
+        line-height: 1.85;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .corazon-salida,
+    .corazon-final,
+    .fondo-animado-despedida,
+    .fondo-animado-despedida span,
+    .contenido-despedida {
+        animation: none;
+    }
+
+    .mensaje-despedida.escribiendo::after {
+        animation: none;
+    }
+
+    .boton-despedida,
+    .boton-finalizar,
+    .firma-final {
+        transition: none;
+    }
+}

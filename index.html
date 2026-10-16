@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#100d29">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#ff5d9e">
+
+    <title>Feliz Día 🎂</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos_corazon.css">
+    <link rel="stylesheet" href="estilos_contenido.css">
+    <link rel="stylesheet" href="estilos_music.css">
+    <link rel="stylesheet" href="estilos_galeria.css">
+    <link rel="stylesheet" href="estilos_carta.css">
+    <link rel="stylesheet" href="estilos_notas.css">
+    <link rel="stylesheet" href="estilos_cuestionario.css">
+    <link rel="stylesheet" href="estilos_salida.css">
+</head>
+<body>
+
+    <!-- Fondo animado -->
+    <div class="fondo-animado">
+        <div class="brillo brillo-1"></div>
+        <div class="brillo brillo-2"></div>
+        <div class="brillo brillo-3"></div>
+
+        <div id="globos"></div>
+        <div id="confeti"></div>
+        <div id="estrellas"></div>
+    </div>
+
+    <!-- Panel de contraseña -->
+    <main class="contenedor-principal">
+        <section class="panel" id="panel">
+
+            <div class="icono-cumple">
+                🎂
+            </div>
+
+            <p class="etiqueta">UNA SORPRESA ESPECIAL</p>
+
+            <h1>¡Esto es para ti! 🎁</h1>
+
+            <p class="descripcion">
+                Un detalle que espero te guste..
+            </p>
+
+            <form id="formulario">
+                <label for="contrasena">
+                     <p> primero tu contraseña </p>
+                         🔒
+                </label>
+
+                <div class="campo-contrasena">
+                    <input
+                        type="password"
+                        id="contrasena"
+                        placeholder="Escribe aquí..."
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="mostrarContrasena"
+                        aria-label="Mostrar contraseña"
+                    >
+                        👁️
+                    </button>
+                </div>
+
+                <button type="submit" class="boton-entrar">
+                    Desbloquear sorpresa ✨
+                </button>
+
+                <p id="mensaje" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="decoracion">
+                <span>🎈</span>
+                <span>✨</span>
+                <span>🎉</span>
+            </div>
+
+            <p class="pie">
+                Hecho especialmente para ti hermanita ❤️
+            </p>
+
+        </section>
+
+
+<!-- ETAPA 2: BIENVENIDA -->
+
+<section class="panel bienvenida" id="bienvenida" hidden>
+
+    <div class="icono-cumple">🎁</div>
+
+    <p class="etiqueta">UNA SORPRESITA</p>
+
+    <h1>❤️</h1>
+
+    <p class="descripcion">
+        Hay personas que hacen la vida más bonita
+        con tan solo existir.
+        Esta pequeña sorpresa es para recordarte
+        lo especial que eres.
+    </p>
+
+    <p class="instruccion">
+         descubrir...
+    </p>
+
+    <!-- Corazón interactivo -->
+
+    
+<button
+    type="button"
+    id="corazonInteractivo"
+    class="corazon-boton"
+    aria-label="Corazón vacío. Toca para llenarlo de amor"
+    aria-describedby="progresoCorazon"
+>
+    <svg
+        class="corazon-svg"
+        viewBox="0 0 100 90"
+        role="img"
+        aria-hidden="true"
+    >
+        <defs>
+            <clipPath id="recorteCorazon">
+                <rect
+                    id="rellenoRecorte"
+                    x="0"
+                    y="90"
+                    width="100"
+                    height="0"
+                >
+                    <animate
+                        id="animarY"
+                        attributeName="y"
+                        dur="350ms"
+                        begin="indefinite"
+                        fill="freeze"
+                    />
+
+                    <animate
+                        id="animarAltura"
+                        attributeName="height"
+                        dur="350ms"
+                        begin="indefinite"
+                        fill="freeze"
+                    />
+                </rect>
+            </clipPath>
+        </defs>
+
+        <!-- Relleno rojo progresivo -->
+
+        <path
+            class="corazon-relleno"
+            clip-path="url(#recorteCorazon)"
+            d="M50 84
+               C42 76 5 53 5 28
+               C5 3 35 -4 50 19
+               C65 -4 95 3 95 28
+               C95 53 58 76 50 84 Z"
+        />
+
+        <!-- Contorno del corazón -->
+
+        <path
+            class="corazon-contorno"
+            d="M50 84
+               C42 76 5 53 5 28
+               C5 3 35 -4 50 19
+               C65 -4 95 3 95 28
+               C95 53 58 76 50 84 Z"
+        />
+    </svg>
+</button>
+
+
+    <p class="contador-corazon" id="progresoCorazon">
+        0 de 4 toques ❤️
+    </p>
+
+    <p class="mensaje-corazon" id="mensajeCorazon" aria-live="polite">
+        Toca el corazón para llenarlo de amor.
+    </p>
+
+    <div class="barra-progreso" aria-hidden="true">
+        <div id="progresoVisual"></div>
+    </div>
+
+    <p class="pie">
+        Cada pequeño detalle guarda un sentimiento. 💗
+    </p>
+
+</section>
+
+
+
+
+
+
+<!-- ETAPA 3 Y 4: FOTO Y REPRODUCTOR MUSICAL -->
+
+<section
+    class="contenido-desbloqueado seccion-foto"
+    id="contenidoDesbloqueado"
+    hidden
+>
+    <!-- ETAPA 3: FOTOGRAFÍA DE KARINA -->
+
+    <div class="zona-fotografia">
+        <img
+            src="img/crosset.png"
+            alt="Fotografía de Karina"
+            id="fotoCumpleanera"
+            class="foto-fondo"
+        >
+
+        <div class="contenido-foto">
+            <p class="etiqueta">UNA PERSONA MUY ESPECIAL</p>
+
+            <h1 class="nombre-cumpleanera">KARINA ❤️</h1>
+
+            <p class="mensaje-presentacion">
+                No tienes idea de cuánto te quiero.
+                Eres valiosa y muy valiente.
+            </p>
+        </div>
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    <!-- ETAPA 4: REPRODUCTOR MUSICAL DEBAJO DE LA FOTO -->
+
+    <section class="etapa-musical" id="etapaMusical">
+
+        <p class="etiqueta-musical">Una de tus canciónes favoritas</p>
+
+        <!-- Vinilo -->
+        <div class="vinilo-contenedor" id="viniloContenedor">
+            <div class="vinilo">
+                <div class="vinilo-surcos"></div>
+
+                <img
+                    class="vinilo-portada"
+                    src="img/paisaje.png"
+                    alt="Portada de la canción"
+                >
+
+                <div class="vinilo-centro"></div>
+            </div>
+        </div>
+
+        <!-- Tarjeta musical -->
+        <div class="spotify-card">
+
+            <div class="musica-info">
+                <div class="musica-textos">
+                    <h2 id="tituloCancion">La mejor canción</h2>
+                    <p id="artistaCancion">Con mucho cariño ❤️</p>
+                </div>
+
+                <span class="musica-icono" aria-hidden="true">♫</span>
+            </div>
+
+            
+                <audio id="audioCancion" preload="metadata">
+    <source src="audio/superstar.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir este archivo.
+</audio>
+
+
+            <div class="musica-progreso">
+                <input
+                    type="range"
+                    id="barraCancion"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Progreso de la canción"
+                >
+
+                <div class="musica-tiempos">
+                    <span id="tiempoActual">0:00</span>
+                    <span id="duracionCancion">0:00</span>
+                </div>
+            </div>
+
+            <div class="musica-controles">
+                <button
+                    type="button"
+                    id="reiniciarCancion"
+                    class="control-secundario"
+                    aria-label="Reiniciar canción"
+                >↺</button>
+
+                <button
+                    type="button"
+                    id="botonReproducir"
+                    class="control-reproducir"
+                    aria-label="Reproducir canción"
+                >▶</button>
+
+                <button
+                    type="button"
+                    id="silenciarCancion"
+                    class="control-secundario"
+                    aria-label="Silenciar canción"
+                >♫</button>
+            </div>
+
+        </div>
+
+        <p class="musica-pie">
+            Hecha para acompañar un momento especial 💗
+        </p>
+
+    </section>
+
+<!-- =========================================
+     ETAPA 5: GALERÍA DE RECUERDOS
+========================================= -->
+
+<section id="etapaGaleria" class="etapa-galeria">
+
+    <h2 class="titulo-galeria">tus recuerdos ❤️</h2>
+
+    <p class="descripcion-galeria">
+        Cada fotografía guarda un pedacito de nuestra historia y de ti.
+    </p>
+
+    <div class="galeria-vertical">
+
+        <!-- Fila 1: movimiento hacia la izquierda -->
+        <div class="pista-galeria pista-izquierda">
+            <div class="grupo-fotos">
+                <img src="img/amigos.png" alt="Nuestro recuerdo 1">
+                <img src="img/espejo.png" alt="Nuestro recuerdo 2">
+                <img src="img/selfie.png" alt="Nuestro recuerdo 3">
+                <img src="img/sisters.png" alt="Nuestro recuerdo 4">
+            </div>
+
+            <div class="grupo-fotos" aria-hidden="true">
+                <img src="img/crosset.png" alt="">
+                <img src="img/vestido.png" alt="">
+                <img src="img/amigos.png" alt="">
+                <img src="img/sisters.png" alt="">
+            </div>
+        </div>
+
+        <!-- Fila 2: movimiento hacia la derecha -->
+        <div class="pista-galeria pista-derecha">
+            <div class="grupo-fotos">
+                <img src="img/linda.png" alt="Nuestro recuerdo 5">
+                <img src="img/family.png" alt="Nuestro recuerdo 6">
+                <img src="img/crosset.png" alt="Nuestro recuerdo 7">
+                <img src="img/linda.png" alt="Nuestro recuerdo 8">
+            </div>
+
+            <div class="grupo-fotos" aria-hidden="true">
+                <img src="img/family.png" alt="">
+                <img src="img/sani.png" alt="">
+                <img src="img/selfie.png" alt="">
+                <img src="img/family.png" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================
+     ETAPA 6: CARTA DEDICATORIA
+========================================= -->
+
+<section id="etapaCarta" class="etapa-carta">
+
+    <div class="sobre-carta">
+        <span class="decoracion-corazon">♥</span>
+
+        <p class="etiqueta-carta">PARA ALGUIEN ESPECIAL</p>
+
+        <h2>Una carta para ti</h2>
+
+        <p class="frase-carta">
+            Hay cosas que merecen escribirse con el corazón...
+        </p>
+
+        <div class="icono-carta" aria-hidden="true">💌</div>
+
+        <button
+            type="button"
+            id="abrirCarta"
+            class="boton-abrir-carta"
+            aria-expanded="false"
+            aria-controls="contenidoCarta"
+        >
+            Abrir mi carta ♡
+        </button>
+    </div>
+
+    <article id="contenidoCarta" class="papel-carta" hidden>
+        <div class="encabezado-carta">Para ti, con todo mi cariño ❤️</div>
+
+        <div class="texto-dedicatoria">
+            <p>Mi persona especial:</p>
+
+            <p>
+                Hoy quiero recordarte lo importante que eres para mí.
+                Gracias por cada sonrisa, cada momento compartido y
+                por todos esos pequeños detalles que hacen especiales
+                nuestros días.
+            </p>
+
+            <p>
+                Si pudiera guardar nuestros mejores momentos en un
+                lugar, los guardaría todos aquí, cerquita de mi corazón.
+                Y si pudiera pedir un deseo, sería seguir creando
+                recuerdos bonitos contigo.
+            </p>
+
+            <p>
+                Espero que esta pequeña sorpresa te recuerde cuánto
+                significas para mí y lo feliz que me hace tenerte en
+                mi vida.
+            </p>
+
+            <p class="firma-carta">
+                Con mucho cariño,<br>
+                <span>Alguien que te quiere ❤️</span>
+            </p>
+        </div>
+
+        <button
+            type="button"
+            id="cerrarCarta"
+            class="boton-cerrar-carta"
+        >
+            Cerrar carta
+        </button>
+    </article>
+
+</section>
+
+
+<!-- =========================================
+     ETAPA 7: NOTAS PARA KARINA
+========================================= -->
+
+<section id="etapaNotas" class="etapa-notas">
+
+    <header class="encabezado-notas">
+        <span class="adorno-notas">♡</span>
+        <h2>Pequeños recuerdos, un cariño enorme</h2>
+        <p>Para mi hermana Karina, con mucho cariño. 💗</p>
+    </header>
+
+    <div class="linea-tiempo-notas">
+
+        <!-- Nota 1 -->
+        <article class="nota-recuerdo">
+            <span class="punto-nota"></span>
+
+            <div class="tarjeta-nota">
+                <span class="fecha-nota">PARA MI HERMANA FAVORITA</span>
+                <h3>Mi compañera de aventuras 🫶</h3>
+
+                <p>
+                    Karina, aunque a veces podamos molestarnos,
+                    discutir por tonterías o no estar de acuerdo
+                    en todo, quiero que sepas que me alegra tenerte
+                    como hermana. Crecer compartiendo tantos momentos
+                    contigo es algo que siempre voy a valorar.
+                    No cambiaría por nada el hecho de que seas parte
+                    de mi vida.
+                </p>
+            </div>
+        </article>
+
+        <!-- Nota 2 -->
+        <article class="nota-recuerdo">
+            <span class="punto-nota"></span>
+
+            <div class="tarjeta-nota">
+                <span class="fecha-nota">RECUERDOS QUE SIEMPRE SACAN UNA SONRISA</span>
+                <h3>Nuestras risas y ocurrencias 😂</h3>
+
+                <p>
+                    Si algo me gusta de tenerte como hermana es que
+                    siempre terminamos teniendo alguna historia que
+                    contar. Las bromas, las ocurrencias y hasta esos
+                    momentos en los que nos hacemos enojar forman
+                    parte de nuestra historia. Puede que con el tiempo
+                    olvidemos algunos detalles, pero espero que nunca
+                    nos falten motivos para reír juntos.
+                </p>
+            </div>
+        </article>
+
+        <!-- Nota 3 -->
+        <article class="nota-recuerdo">
+            <span class="punto-nota"></span>
+
+            <div class="tarjeta-nota">
+                <span class="fecha-nota">ALGO QUE QUIERO QUE NUNCA OLVIDES</span>
+                <h3>Siempre voy a desearte lo mejor 🌷</h3>
+
+                <p>
+                    Quiero verte cumplir tus sueños, disfrutar de las
+                    cosas bonitas de la vida y sentirte orgullosa de
+                    la persona en la que te estás convirtiendo.
+                    No todo será fácil, pero nunca dudes de lo mucho
+                    que vales. Mereces personas que te quieran bien,
+                    oportunidades bonitas y muchísimas razones para
+                    sonreír. Siempre voy a estar feliz de verte crecer
+                    y avanzar.
+                </p>
+            </div>
+        </article>
+
+        <!-- Nota 4 -->
+        <article class="nota-recuerdo">
+            <span class="punto-nota"></span>
+
+            <div class="tarjeta-nota">
+                <span class="fecha-nota">UN RECORDATORIO PARA TI</span>
+                <h3>Gracias por ser mi hermana ❤️</h3>
+
+                <p>
+                    Quizá no siempre te diga lo mucho que te quiero,
+                    pero eso no significa que no lo sienta.
+                    Eres una parte importante de mi vida y quiero
+                    que recuerdes que, por encima de las diferencias
+                    o de los días difíciles, siempre tendrás un lugar
+                    especial en mi corazón. Gracias por ser Karina
+                    y por formar parte de mi historia.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- Nota de voz -->
+    <div class="nota-voz">
+<section class="mensaje-para-hermana">
+    <div class="etiqueta-mensaje">
+        <span>♥</span> UN MENSAJE ESPECIAL
+    </div>
+
+    <h2>REPRODUCE <span class="corazon-titulo">♡</span></h2>
+
+    <p class="subtitulo-mensaje">
+        Un mensaje hecho con cariño para ti
+    </p>
+
+    <div class="reproductor-mensaje">
+        <div class="icono-audio" aria-hidden="true">♫</div>
+
+        <audio id="audioMensaje" controls preload="metadata">
+            <source src="audio/audio.ogg" type="audio/ogg">
+            Tu navegador no puede reproducir este audio.
+        </audio>
+    </div>
+
+    <div class="onda-voz" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <p class="frase-mensaje">
+        Espero que este mensaje te recuerde
+        lo mucho que te quiero. <span>♡</span>
+    </p>
+</section>
+
+        <p class="aviso-voz">
+            💌
+        </p>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ETAPA 8: CUESTIONARIO PARA KARINA
+========================================= -->
+
+<section id="etapaCuestionario" class="etapa-cuestionario">
+
+    <div class="portada-cuestionario">
+        <span class="corazon-cuestionario">♡</span>
+
+        <p class="etiqueta-cuestionario">UNA PEQUEÑA SORPRESA</p>
+
+        <h2>Karina, tenemos algo que preguntarte...</h2>
+
+        <p>
+            Cinco afirmaciones, una personita muy especial
+            y mucho cariño de por medio.
+        </p>
+
+        <button id="comenzarCuestionario" class="boton-cuestionario">
+            Comenzar 💗
+        </button>
+    </div>
+
+</section>
+
+<!-- Ventana emergente -->
+<div
+    id="modalCuestionario"
+    class="modal-cuestionario"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalCuestionario"
+>
+    <div class="contenido-modal-cuestionario">
+
+        <button
+            type="button"
+            id="cerrarCuestionario"
+            class="cerrar-modal-cuestionario"
+            aria-label="Cerrar cuestionario"
+        >×</button>
+
+        <span class="icono-modal-corazon">♥</span>
+
+        <p id="progresoCuestionario" class="progreso-cuestionario">
+            AFIRMACIÓN 1 DE 5
+        </p>
+
+        <div
+            class="barra-progreso-cuestionario"
+            role="progressbar"
+            aria-label="Progreso del cuestionario"
+            aria-valuemin="0"
+            aria-valuemax="5"
+            aria-valuenow="1"
+            id="barraProgresoCuestionario"
+        >
+            <span id="rellenoProgresoCuestionario"></span>
+        </div>
+
+        <h2 id="tituloModalCuestionario">Karina, ¿sabías que...?</h2>
+
+        <p id="textoAfirmacion" class="texto-afirmacion"></p>
+
+        <div id="opcionesCuestionario" class="opciones-cuestionario">
+            <button type="button" class="respuesta-cuestionario">
+                ¡Es verdad! 💗
+            </button>
+
+            <button type="button" class="respuesta-cuestionario">
+                ¡Claro que sí! 🥰
+            </button>
+        </div>
+
+        <p id="mensajeRespuesta" class="mensaje-respuesta" aria-live="polite"></p>
+
+    </div>
+</div>
+
+
+<!-- =========================================
+     ETAPA 9: DESPEDIDA PARA KARINA
+========================================= -->
+
+<section id="etapaSalida" class="etapa-salida">
+
+    <div class="tarjeta-salida">
+        <span class="corazon-salida">♡</span>
+
+        <p class="etiqueta-salida">ANTES DE QUE TE VAYAS...</p>
+
+        <h2>Una última cosita, Karina</h2>
+
+        <p class="descripcion-salida">
+            No te vayas sin leer esto. 💗
+        </p>
+
+        <button
+            type="button"
+            id="botonDespedida"
+            class="boton-despedida"
+        >
+            Terminar recorrido ❤️
+        </button>
+    </div>
+
+</section>
+
+<!-- VENTANA FINAL -->
+<div
+    id="modalDespedida"
+    class="modal-despedida"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloDespedida"
+    hidden
+>
+    <div class="fondo-animado-despedida" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="contenido-despedida">
+
+        <button
+            type="button"
+            id="cerrarDespedida"
+            class="cerrar-despedida"
+            aria-label="Cerrar mensaje"
+        >×</button>
+
+        <div class="corazon-final">♥</div>
+
+        <p class="etiqueta-final">PARA MI HERMANA KARINA</p>
+
+        <h2 id="tituloDespedida">Antes de terminar...</h2>
+
+        <p
+            id="mensajeDespedida"
+            class="mensaje-despedida"
+            aria-label="Gracias por leer y espero sepas que te quiero más de lo que tú puedas pensar hermana."
+        ></p>
+
+        <div class="firma-final">
+            Con mucho cariño, para ti. 💗
+        </div>
+
+        <button
+            type="button"
+            id="botonFinalizar"
+            class="boton-finalizar"
+            hidden
+        >
+            Cerrar♡
+        </button>
+
+    </div>
+</div>
+
+
+
+
+
+</section>
+    </main>
+
+<script>
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registro) => {
+                console.log("PWA registrada:", registro.scope);
+            })
+            .catch((error) => {
+                console.error(
+                    "Error al registrar la PWA:",
+                    error
+                );
+            });
+    });
+}
+</script>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

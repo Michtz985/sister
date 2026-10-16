@@ -1,0 +1,332 @@
+
+/* =========================================
+   ETAPA 4: NUESTRA CANCIÓN
+========================================= */
+
+#etapaMusical.etapa-musical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 36px 22px 30px;
+
+    box-sizing: border-box;
+
+    color: #503743;
+    text-align: center;
+    border-radius: 50px;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            #4c0753 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #f8e8ed 0%,
+            #be027c 100%
+        );
+}
+
+/* Etiqueta */
+
+.etapa-musical .etiqueta-musical {
+    margin: 0 0 24px;
+
+    color: #a58391;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+/* =========================================
+   VINILO
+========================================= */
+
+.etapa-musical .vinilo-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto 22px;
+}
+
+.etapa-musical .vinilo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: clamp(175px, 48vw, 215px);
+    aspect-ratio: 1;
+    flex-shrink: 0;
+
+    border: 5px solid #17151a;
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #17151b 0px,
+            #17151b 3px,
+            #29262e 4px,
+            #111015 6px,
+            #242129 8px
+        );
+
+    box-shadow:
+        0 8px 22px #78526420,
+        0 0 0 1px #ffffffa0;
+}
+
+/* Reflejos del disco */
+
+.etapa-musical .vinilo::before {
+    content: "";
+    position: absolute;
+    inset: 5%;
+    z-index: 2;
+
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: conic-gradient(
+        from 30deg,
+        transparent,
+        #ffffff15,
+        transparent 30%,
+        #ffffff08,
+        transparent 75%
+    );
+}
+
+/* Portada central */
+
+.etapa-musical .vinilo-portada {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: 43%;
+    height: 43%;
+
+    object-fit: cover;
+    border: 3px solid #242027;
+    border-radius: 50%;
+}
+
+/* Orificio central */
+
+.etapa-musical .vinilo-centro {
+    position: absolute;
+    z-index: 3;
+
+    width: 9px;
+    height: 9px;
+
+    border: 2px solid #29232b;
+    border-radius: 50%;
+    background: #f8e8ed;
+}
+
+/* Giro durante la reproducción */
+
+.etapa-musical .vinilo-contenedor.reproduciendo .vinilo {
+    animation: girarDisco 4s linear infinite;
+}
+
+@keyframes girarDisco {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   TARJETA MUSICAL VERDE
+========================================= */
+
+.etapa-musical .spotify-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 17px;
+
+    box-sizing: border-box;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        140deg,
+        #285c3b,
+        #17452e
+    );
+
+    box-shadow: 0 8px 20px #244b3220;
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Información de la canción */
+
+.etapa-musical .spotify-card .musica-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    width: 100%;
+    margin: 0 0 16px;
+}
+
+.etapa-musical .musica-textos {
+    min-width: 0;
+}
+
+.etapa-musical .spotify-card .musica-textos h2 {
+    margin: 0 0 5px;
+
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.etapa-musical .spotify-card .musica-textos p {
+    margin: 0;
+
+    color: #d0e2d5;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.etapa-musical .spotify-card .musica-icono {
+    flex-shrink: 0;
+    color: #ffffff;
+    font-size: 27px;
+}
+
+/* Progreso */
+
+.etapa-musical .musica-progreso {
+    width: 100%;
+}
+
+.etapa-musical .musica-progreso input {
+    display: block;
+
+    width: 100%;
+    height: 5px;
+    margin: 0;
+
+    accent-color: #ffffff;
+    cursor: pointer;
+}
+
+.etapa-musical .musica-tiempos {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    color: #d0e2d5;
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Controles */
+
+.etapa-musical .musica-controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
+
+    margin-top: 18px;
+}
+
+.etapa-musical .musica-controles button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    cursor: pointer;
+
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.etapa-musical .control-reproducir {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    background: #ffffff;
+    color: #205333;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    transition: transform 0.2s ease;
+}
+
+.etapa-musical .control-reproducir:hover {
+    transform: scale(1.06);
+}
+
+.etapa-musical .control-secundario {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+
+    font-size: 23px;
+}
+
+.etapa-musical .musica-controles button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* Texto inferior */
+
+.etapa-musical .musica-pie {
+    margin: 22px 0 0;
+
+    color: #a58391;
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+    #etapaMusical.etapa-musical {
+        padding: 30px 18px 28px;
+    }
+
+    .etapa-musical .spotify-card {
+        max-width: 420px;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .etapa-musical .vinilo-contenedor.reproduciendo .vinilo {
+        animation: none;
+    }
+
+    .etapa-musical .control-reproducir {
+        transition: none;
+    }
+}
